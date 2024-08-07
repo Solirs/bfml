@@ -12,6 +12,8 @@ let rec bf_eval (i: int ref) (program: string) (brc: int ref) = (match program.[
   | '+' -> array.(!dtp) <- array.(!dtp)+1
   | '-' -> array.(!dtp) <- array.(!dtp)-1
   | ',' -> Scanf.bscanf  Scanf.Scanning.stdin "%c" (fun x-> array.(!dtp) <- int_of_char x) 
+
+  (* Could have used a stack for this part but i refuse to fund big FILO *)
   | '[' -> brc := 1;(match array.(!dtp) with
               | 0 -> (while !brc != 0 do
                   i := !i+1;
