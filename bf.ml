@@ -2,6 +2,8 @@
 
 (* Our pointer in the array*)
 let dtp : int ref = ref 0;;
+
+(* Our array *)
 let array = Array.make 30000 0;;
 let rec bf_eval (i: int ref) (program: string) (brc: int ref) = (match program.[!i] with 
   | '>' -> dtp:= !dtp+1
@@ -39,8 +41,12 @@ let rec bf_eval (i: int ref) (program: string) (brc: int ref) = (match program.[
   if !i < String.length program then bf_eval i program brc;;
 
 
+(*Initial pos in the string*)
 let x : int ref = ref 0;;
+(* Just a pointer for computing matching brackets*)
 let brc : int ref = ref 0;;
+
+(* Your glorious program *)
 let code : string = Sys.argv.(1);;
 
 bf_eval x code brc;;
